@@ -23,7 +23,9 @@
                 <p:commandButton id="btnSearch" value="#{msg.search}" styleClass="button" />
 
                 <div class="dropdown">
-                    <h:selectOneMenu id="search_select" />
+                    <h:selectOneMenu id="search_select" styleClass="select_search" value="${utils.selectedSearchType}">
+                        <f:selectItems value="${utils.searchTypeList}"/>
+                    </h:selectOneMenu>
                 </div>
 
                 <h:outputScript language="javascript">

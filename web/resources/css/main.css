@@ -70,9 +70,9 @@ body {
     width:180px;
 }
 
-.search .dropdown select{
+.search .select_search{
 
-    /*background: url("#{resource['images:select-button.png']}") no-repeat right #ffffff;*/
+    background: url("#{resource['images:select-button.png']}") no-repeat right #ffffff;
     width: 150px;
     padding: 10px;
     border:  1px solid #e2e2e2;
@@ -84,7 +84,6 @@ body {
     margin-left:10px;
 
 }
-
 
 .search .ui-button{
     text-shadow: none;
@@ -150,6 +149,13 @@ body {
 .pagination li {float: left; font-size: 14px;}
 .pagination a {color: #000; padding: 8px 10px 8px 10px; display: block;}
 .pagination .active {background: #d5574b; border-radius: 5px; text-decoration: none; color: #fff; box-shadow: inset -1px 2px 5px 0px #8a2c27;}
+
+.ui-panelgrid .ui-panelgrid-cell{
+    border-width: 0px;
+    border-style: none;
+    border-color:inherit;
+    padding:0px 0px
+}
 
 /* footer */
 #footer {
