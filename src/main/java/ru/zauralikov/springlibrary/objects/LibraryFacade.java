@@ -59,6 +59,10 @@ public class LibraryFacade {
         searchCriteria.setText("");
     }
 
+    public byte[] getContent(long id){
+        return bookSearch.getContent(id);
+    }
+
     @Autowired
     public void setSearchCriteria(SearchCriteria searchCriteria){
         this.searchCriteria = searchCriteria;

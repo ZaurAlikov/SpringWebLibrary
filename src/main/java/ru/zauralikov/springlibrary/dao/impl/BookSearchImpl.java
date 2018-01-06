@@ -65,7 +65,15 @@ public class BookSearchImpl implements BookSearch {
         return books;
     }
 
-//    @Override
+    @Override
+    public byte[] getContent(long id) {
+        byte[] content = (byte[]) sessionFactory.getCurrentSession()
+                .createQuery("select b.content from Book b where b.id = :id")
+                .setParameter("id", id).getSingleResult();
+        return content;
+    }
+
+    //    @Override
 //    public List<Book> getBooks(Character letter) {
 //        List<Book> books =  createBookList(createBookCriteria()
 //                .add(Restrictions.ilike("b.name", letter.toString(), MatchMode.START)));
