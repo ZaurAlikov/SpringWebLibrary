@@ -9,6 +9,7 @@ import org.springframework.context.support.ReloadableResourceBundleMessageSource
 import org.springframework.faces.mvc.JsfView;
 import org.springframework.faces.webflow.JsfFlowHandlerAdapter;
 import org.springframework.faces.webflow.JsfResourceRequestHandler;
+import org.springframework.web.context.support.ServletContextAttributeExporter;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.*;
@@ -17,19 +18,20 @@ import org.springframework.web.servlet.i18n.CookieLocaleResolver;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.view.UrlBasedViewResolver;
 import org.springframework.webflow.mvc.servlet.FlowHandlerMapping;
+import ru.zauralikov.springlibrary.objects.LibraryFacade;
 
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
 @Configuration
-
 @EnableWebMvc
 @Import(WebFlowConfig.class)
 public class MvcConfiguration extends WebMvcConfigurerAdapter {
 
      private static final Logger log = LoggerFactory.getLogger(MvcConfiguration.class);
 
+     private LibraryFacade libraryFacade;
      private WebFlowConfig webFlowConfig;
 
     @Bean
@@ -101,12 +103,26 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         log.error("addInterceptors");
-        registry.addInterceptor(localeChangeInterceptor()).addPathPatterns("/*");
+        registry.addInterceptor(localeChangeInterceptor()).addPathPatterns("/**");
     }
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
+    }
+
+    @Bean
+    public ServletContextAttributeExporter servletContextAttributeExporter(){
+        ServletContextAttributeExporter attributeExporter = new ServletContextAttributeExporter();
+        Map<String, Object> attributes = new HashMap<>();
+        attributes.put("libraryFacade", libraryFacade);
+        attributeExporter.setAttributes(attributes);
+        return attributeExporter;
+    }
+
+    @Autowired
+    public void libraryFacade (LibraryFacade libraryFacade){
+        this.libraryFacade = libraryFacade;
     }
 
     @Autowired

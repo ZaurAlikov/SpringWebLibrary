@@ -13,15 +13,26 @@
             #{msg.book_list}
         </ui:define>
 
+        <ui:define name=" books_count">
+            <div class="box-sh">
+                <h6><p:outputLabel id="booksCount" value="#{msg.book_count}: #{libraryFacade.books.size()}"/></h6>
+
+                <h:form id="add-action">
+                    <p:commandLink>
+                        <h:outputText value="#{msg.add_book}" title="#{msg.add_book}"/>
+                    </p:commandLink>
+                </h:form>
+            </div>
+        </ui:define>
         <ui:define name="content">
             <h:form id="booksForm">
                 <p:dataGrid id="booksList" rowIndexVar="rowIndex" columns="2" lazy="true" var="b" value="${libraryFacade.books}" styleClass="books_list"
-                            paginator="true" rows="4" paginatorPosition="bottom" rowsPerPageTemplate="4, 10, 20" paginatorTemplate="{RowsPerPageDropdown} {PageLinks}"
+                            paginator="true" rows="4" paginatorPosition="bottom" rowsPerPageTemplate="2, 4, 10, 20" paginatorTemplate="{RowsPerPageDropdown} {PageLinks}"
                             paginatorAlwaysVisible="true" emptyMessage="">
                     <div class="item">
                         <div class="image-info">
                             <h:outputLink styleClass="content_link" target="_blank">
-                                <p:graphicImage width="110" height="150"/>
+                                <p:graphicImage value="/ShowImage?index=#{rowIndex}" width="110" height="150"/>
                             </h:outputLink>
 
                             <p:panelGrid id="ratingPanel" columns="2">

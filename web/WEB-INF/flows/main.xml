@@ -4,9 +4,13 @@
       xsi:schemaLocation="http://www.springframework.org/schema/webflow http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
 
     <view-state id="main">
-        <!--<on-render>-->
-            <!--<evaluate expression="genreDAO.genres"/>-->
-        <!--</on-render>-->
+        <transition on="searchByText">
+            <evaluate expression="libraryFacade.searchByText()"/>
+        </transition>
+
+        <transition on="searchByGenre">
+            <evaluate expression="libraryFacade.searchByGenre()"/>
+        </transition>
     </view-state>
 
 </flow>

@@ -125,10 +125,10 @@ body {
 
 .right-content { float: left; border-left: 1px solid #e5e5e5; width: 759px; min-height: 925px; padding-bottom: 34px;}
 .box-sh {padding-right: 40px; overflow: hidden; }
-.box-sh h1 {float: left; color: #7f7f7f; font-size: 30px; margin-left: 39px; margin-top: 28px;}
-.box-sh a {margin-top: 25px; float: right; background: #d5c39d; padding: 10px 15px 10px 15px; border-radius: 5px; margin-left: 6px; font-size: 14px; color: #fff; text-decoration: none;}
+.box-sh h6 {float: left; color: #7f7f7f; font-size: 16px; margin-left: 39px; margin-top: 19px;}
+.box-sh a {margin-top: 11px; float: right; background: #d5c39d; padding: 10px 15px 10px 15px; border-radius: 5px; margin-left: 6px; font-size: 14px; color: #fff; text-decoration: none;}
 
-.item { height:100%; width: 340px; padding-top: 18px; padding-bottom: 18px; overflow: hidden; border: 1px solid #e5e5e5; border-radius: 5px; margin-left: 15px; margin-top: 20px; float: left; }
+.item { height:100%; width: 340px; padding-top: 18px; padding-bottom: 18px; overflow: hidden; border: 1px solid #e5e5e5; border-radius: 5px; margin-left: 15px; margin-top: 9px; margin-bottom: 10px; float: left; }
 .item img {float: left; margin-right: 20px; margin-left: 19px;}
 .item .info {overflow: hidden;}
 .item .book_name {height: 40px;}
@@ -206,7 +206,7 @@ body {
 }
 
 .books_list .ui-paginator-page{
-    padding: 8px 10px 8px 10px;
+    padding: 6px 6px 6px 7px;
 
 }
 
@@ -321,7 +321,8 @@ body {
 
 
 #booksForm select{
-    width:50px;
+    width:45px;
+    height: 30px;
 }
 
 

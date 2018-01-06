@@ -19,6 +19,9 @@ public class GenreDAOImpl implements GenreDAO {
     public List<Genre> getGenres() {
         List<Genre> genres = sessionFactory.getCurrentSession()
                 .createQuery("select g from Genre g order by name", Genre.class).list();
+        Genre allBooks = new Genre();
+        allBooks.setName("Все книги");
+        genres.add(0, allBooks);
         return genres;
     }
 

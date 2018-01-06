@@ -43,11 +43,7 @@
             <artifactId>jsf-impl</artifactId>
             <version>${mojarra-version}</version>
         </dependency>
-        <dependency>
-            <groupId>org.primefaces</groupId>
-            <artifactId>primefaces</artifactId>
-            <version>${primefaces-version}</version>
-        </dependency>
+
 
         <dependency>
             <groupId>org.springframework</groupId>
