@@ -32,7 +32,7 @@
                     <div class="item">
                         <div class="image-info">
                             <h:outputLink styleClass="content_link" value="#{request.contextPath}/PdfContent" target="_blank">
-                                <p:graphicImage value="/ShowImage?index=#{rowIndex}" width="110" height="150"/>
+                                <p:graphicImage value="/ShowImage?index=#{rowIndex}" width="110" height="150" cache="false"/>
                                 <f:param name="id" value="#{b.id}"/>
                                 <f:param name="save" value="false"/>
                             </h:outputLink>
@@ -72,10 +72,18 @@
                         <p:commandLink styleClass="mr" title="#{msg.edit_book}">
                             <p class="edit">#{msg.edit}</p>
                         </p:commandLink>
-                        <p:commandLink styleClass="delete-button" title="#{msg.delete_book}" type="button">
+                        <p:commandLink styleClass="delete-button" title="#{msg.delete_book}" update="deldlg" oncomplete="PF('dlg_del_book').show();" type="button">
                             <p class="delete">#{msg.delete}</p>
                         </p:commandLink>
                     </div>
+
+                        <p:confirmDialog id="deldlg" header="#{msg.delete_book}" widgetVar="dlg_del_book" message="#{msg.delete_confirm}" styleClass="dlg_del">
+                            <p:panelGrid style="margin: 0 auto; width: 150px" columns="2">
+                                <p:commandButton id ="btn_del_book" value="#{msg.yes}" update=":booksForm:booksList :booksCount" action="#{libraryFacade.deleteBook(rowIndex)}" oncomplete="PF('dlg_del_book').hide();"/>
+                                <p:commandButton value="#{msg.no}" oncomplete="PF('dlg_del_book').hide();"/>
+                            </p:panelGrid>
+                        </p:confirmDialog>
+
                 </p:dataGrid>
             </h:form>
         </ui:define>

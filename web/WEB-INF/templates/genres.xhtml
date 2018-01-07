@@ -16,7 +16,7 @@
                     <ul>
                         <ui:repeat value="${genreDAO.genres}" var="g">
                             <li>
-                                <p:commandLink value="${g.name}" action="searchByGenre" actionListener="#{searchCriteria.setGenre(g)}" ajax="false"/>
+                                <p:commandLink value="${g.name}" action="searchByGenre" actionListener="#{searchCriteria.setGenre(g)}" update=":booksForm:booksList :booksCount"/>
                             </li>
                         </ui:repeat>
                     </ul>

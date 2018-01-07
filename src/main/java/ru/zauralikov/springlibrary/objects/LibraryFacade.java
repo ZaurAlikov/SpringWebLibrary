@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import ru.zauralikov.springlibrary.dao.interfaces.BookSearch;
+import ru.zauralikov.springlibrary.dao.interfaces.EditBook;
 import ru.zauralikov.springlibrary.entities.Author;
 import ru.zauralikov.springlibrary.entities.Book;
 import ru.zauralikov.springlibrary.enums.SearchType;
@@ -20,6 +21,7 @@ public class LibraryFacade {
     private static final Logger log = LoggerFactory.getLogger(LibraryFacade.class);
 
     private BookSearch bookSearch;
+    private EditBook editBook;
     private SearchCriteria searchCriteria;
     private List<Book> books;
 
@@ -63,6 +65,13 @@ public class LibraryFacade {
         return bookSearch.getContent(id);
     }
 
+    public void deleteBook(int index){
+        boolean result = editBook.delete(books.get(index));
+        if(result){
+            books.remove(index);
+        }
+    }
+
     @Autowired
     public void setSearchCriteria(SearchCriteria searchCriteria){
         this.searchCriteria = searchCriteria;
@@ -73,4 +82,8 @@ public class LibraryFacade {
         this.bookSearch = bookSearch;
     }
 
+    @Autowired
+    public void setEditBook(EditBook editBook){
+        this.editBook = editBook;
+    }
 }

@@ -313,6 +313,36 @@ select,
     
 }
 
+#booksForm .ui-panelgrid .ui-panelgrid-cell{
+    text-align: center  ;
+}
+
+#booksForm .ui-widget-content{
+    border: none;
+}
+
+#booksForm .ui-button{
+    float: right;
+    width: 60px;
+    height: 30px;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    background: #d5564d;
+    border: none;
+}
+
+#booksForm .ui-button-text-only .ui-button-text{
+    text-align: center;
+    font-weight: normal;
+}
+
+#booksForm .ui-dialog .ui-dialog-buttonpane{
+    margin: 0;
+}
+
+
 input.mail-subject, textarea.mail-message{
     width:350px !important;
 }
